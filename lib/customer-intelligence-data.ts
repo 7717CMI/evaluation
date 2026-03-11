@@ -44,11 +44,12 @@ const locationSuffixes = [
 
 // Region-specific prefixes
 const regionPrefixes: Record<string, string[]> = {
-  'North America': ['American', 'United', 'National', 'Regional', 'Metropolitan'],
-  'Latin America': ['Latino', 'Americas', 'Continental', 'Regional', 'National'],
-  'Europe': ['European', 'Continental', 'Regional', 'National', 'Metropolitan'],
-  'Asia Pacific': ['Asia', 'Pacific', 'Regional', 'National', 'Metropolitan'],
-  'Middle East & Africa': ['Middle East', 'Regional', 'National', 'Gulf', 'African']
+  'US': ['American', 'United', 'National', 'Regional', 'Metropolitan'],
+  'Northeast': ['Eastern', 'Atlantic', 'New England', 'Regional', 'Metropolitan'],
+  'Southwest': ['Southwestern', 'Desert', 'Border', 'Regional', 'National'],
+  'West': ['Western', 'Pacific', 'Coastal', 'Regional', 'National'],
+  'Southeast': ['Southern', 'Gulf Coast', 'Atlantic', 'Regional', 'National'],
+  'Midwest': ['Midwestern', 'Great Lakes', 'Plains', 'Regional', 'National']
 }
 
 function generateCustomerName(region: string, endUserSegment: string, index: number): string {
@@ -85,11 +86,12 @@ function seededRandom(seed: number): () => number {
 function generateCustomerCount(region: string, endUserSegment: string): number {
   // Base multipliers by region (reflecting market size)
   const regionMultipliers: Record<string, number> = {
-    'North America': 1.2,
-    'Europe': 1.0,
-    'Asia Pacific': 1.3,
-    'Latin America': 0.7,
-    'Middle East & Africa': 0.6
+    'US': 1.2,
+    'Northeast': 1.1,
+    'Southwest': 0.8,
+    'West': 1.0,
+    'Southeast': 1.1,
+    'Midwest': 0.9
   }
 
   // Base multipliers by end user type
@@ -125,11 +127,12 @@ function generateCustomerCount(region: string, endUserSegment: string): number {
  */
 export function generateCustomerIntelligenceData(): CustomerIntelligenceData[] {
   const regions = [
-    'North America',
-    'Latin America',
-    'Europe',
-    'Asia Pacific',
-    'Middle East & Africa'
+    'US',
+    'Northeast',
+    'Southwest',
+    'West',
+    'Southeast',
+    'Midwest'
   ]
 
   const endUserSegments = [
@@ -317,16 +320,18 @@ export function parseCustomerIntelligenceFromData(rows: Record<string, any>[]): 
     let normalizedRegion = region || null
     if (region) {
       const lowerRegion = region.toLowerCase()
-      if (lowerRegion.includes('north america') || lowerRegion.includes('usa') || lowerRegion.includes('united states') || lowerRegion.includes('u.s.')) {
-        normalizedRegion = 'North America'
-      } else if (lowerRegion.includes('latin america') || lowerRegion.includes('south america')) {
-        normalizedRegion = 'Latin America'
-      } else if (lowerRegion.includes('europe')) {
-        normalizedRegion = 'Europe'
-      } else if (lowerRegion.includes('asia') || lowerRegion.includes('pacific')) {
-        normalizedRegion = 'Asia Pacific'
-      } else if (lowerRegion.includes('middle east') || lowerRegion.includes('africa')) {
-        normalizedRegion = 'Middle East & Africa'
+      if (lowerRegion.includes('us') || lowerRegion.includes('usa') || lowerRegion.includes('united states') || lowerRegion.includes('u.s.')) {
+        normalizedRegion = 'US'
+      } else if (lowerRegion.includes('northeast')) {
+        normalizedRegion = 'Northeast'
+      } else if (lowerRegion.includes('southwest')) {
+        normalizedRegion = 'Southwest'
+      } else if (lowerRegion.includes('west') && !lowerRegion.includes('southwest') && !lowerRegion.includes('midwest')) {
+        normalizedRegion = 'West'
+      } else if (lowerRegion.includes('southeast')) {
+        normalizedRegion = 'Southeast'
+      } else if (lowerRegion.includes('midwest')) {
+        normalizedRegion = 'Midwest'
       } else {
         normalizedRegion = region
       }
@@ -337,20 +342,23 @@ export function parseCustomerIntelligenceFromData(rows: Record<string, any>[]): 
       for (const key in row) {
         if (key.startsWith('_')) continue
         const value = String(row[key] || '').toLowerCase()
-        if (value.includes('north america') || value.includes('usa') || value.includes('united states')) {
-          normalizedRegion = 'North America'
+        if (value.includes('united states') || value.includes('usa') || value === 'us') {
+          normalizedRegion = 'US'
           break
-        } else if (value.includes('latin america') || value.includes('south america')) {
-          normalizedRegion = 'Latin America'
+        } else if (value.includes('northeast')) {
+          normalizedRegion = 'Northeast'
           break
-        } else if (value.includes('europe')) {
-          normalizedRegion = 'Europe'
+        } else if (value.includes('southwest')) {
+          normalizedRegion = 'Southwest'
           break
-        } else if (value.includes('asia') || value.includes('pacific')) {
-          normalizedRegion = 'Asia Pacific'
+        } else if (value.includes('west') && !value.includes('southwest') && !value.includes('midwest')) {
+          normalizedRegion = 'West'
           break
-        } else if (value.includes('middle east') || value.includes('africa')) {
-          normalizedRegion = 'Middle East & Africa'
+        } else if (value.includes('southeast')) {
+          normalizedRegion = 'Southeast'
+          break
+        } else if (value.includes('midwest')) {
+          normalizedRegion = 'Midwest'
           break
         }
       }

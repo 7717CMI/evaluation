@@ -1,62 +1,82 @@
 {
   "Global": {
-    "By Type": {
-      "Sub-Normothermic Perfusion (20–34°C)": {},
-      "Warm or Normothermic Perfusion (35–37°C)": {}
+    "By Customer Type": {
+      "Federal": {
+        "Federal Health Programs": {},
+        "Veterans / Military Programs": {},
+        "Federal Disability / Benefits Programs": {},
+        "Federal Workers' Compensation / Occupational Programs": {},
+        "Other Federal Agencies": {}
+      },
+      "State": {
+        "State Workers' Compensation Programs": {},
+        "Medicaid / LTSS Assessment Programs": {},
+        "State Disability / Appeals Programs": {},
+        "State Employee Health / Benefits Programs": {},
+        "Other State Agencies": {}
+      },
+      "Commercial": {
+        "Insurance Carriers": {},
+        "Third-Party Administrators": {},
+        "Self-Insured Employers": {},
+        "Managed Care / UR Organizations": {},
+        "Law Firms": {},
+        "Other Commercial Buyers": {}
+      }
     },
-    "By Organ Type": {
-      "Liver": {},
-      "Heart": {},
-      "Lung": {},
-      "Kidney": {},
-      "Others (Pancreas, Small bowel / Intestine, Composite Tissues / Limb Perfusion (emerging use cases))": {}
+    "By Service Type": {
+      "Examination-Based IME Services": {},
+      "Review-Based Independent Medical Services": {},
+      "Functional / Work-Capacity Assessment Services": {},
+      "Claims-Support / Cost-Containment Services": {},
+      "Workflow / Network Administration Services": {}
     },
-    "Application / Use Case": {
-      "Organ Preservation": {},
-      "Viability Assessment": {},
-      "Physiologic Transport": {},
-      "Reconditioning Marginal Organs": {},
-      "Others (Research Use / Protocol development)": {}
+    "By Case / Claim Type": {
+      "Workers' Compensation": {},
+      "Disability": {},
+      "Auto / No-Fault / PIP": {},
+      "Liability / Bodily Injury": {},
+      "Group Health / Medical Necessity": {},
+      "Federal / Public Benefits": {},
+      "Fitness for Duty / Occupational Health": {},
+      "Litigation / Legal Support": {},
+      "Others": {}
     },
-    "By End User": {
-      "Hospitals & Clinics": {},
-      "Specialty Clinic/Centers": {},
-      "Transplant Centers": {},
-      "Others (Research Institutes/Centers, Organ Procurement Organizations, etc.)": {}
+    "By Medical Question Addressed": {
+      "Causation / Relatedness": {},
+      "Medical Necessity / Appropriateness": {},
+      "Extent of Injury / Severity": {},
+      "Diagnosis Confirmation": {},
+      "Maximum Medical Improvement (MMI)": {},
+      "Impairment / Disability Rating": {},
+      "Work Capacity / Restrictions": {},
+      "Treatment Frequency / Duration": {},
+      "Future Care / Cost Projection": {}
+    },
+    "By Delivery Mode": {
+      "In-Person Examination": {},
+      "Records-Only Review": {},
+      "Hybrid Exam + File Review": {},
+      "Telehealth / Virtual Review Support": {}
+    },
+    "By Specialty Type": {
+      "Orthopedics": {},
+      "Neurology": {},
+      "Psychiatry / Psychology": {},
+      "Pain Medicine": {},
+      "Physical Medicine & Rehabilitation": {},
+      "Occupational Medicine": {},
+      "Internal Medicine": {},
+      "Radiology": {},
+      "Other Specialty Reviews": {}
     },
     "By Region": {
-      "North America": {
-        "U.S.": {},
-        "Canada": {}
-      },
-      "Europe": {
-        "U.K.": {},
-        "Germany": {},
-        "Italy": {},
-        "France": {},
-        "Spain": {},
-        "Russia": {},
-        "Rest of Europe": {}
-      },
-      "Asia Pacific": {
-        "China": {},
-        "India": {},
-        "Japan": {},
-        "South Korea": {},
-        "ASEAN": {},
-        "Australia": {},
-        "Rest of Asia Pacific": {}
-      },
-      "Latin America": {
-        "Brazil": {},
-        "Argentina": {},
-        "Mexico": {},
-        "Rest of Latin America": {}
-      },
-      "Middle East & Africa": {
-        "GCC": {},
-        "South Africa": {},
-        "Rest of Middle East & Africa": {}
+      "US": {
+        "Northeast": {},
+        "Southwest": {},
+        "West": {},
+        "Southeast": {},
+        "Midwest": {}
       }
     }
   }

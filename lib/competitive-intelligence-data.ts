@@ -273,15 +273,15 @@ const portfolios: Record<string, string> = {
 
 // Regional strengths
 const regionalStrengths: Record<string, string> = {
-  'Gaudron Bedstar': 'North America, Europe',
-  'Kandeltam': 'Europe, Asia Pacific',
-  'Hebei Xing Chemical': 'China, Southeast Asia',
-  'Hubei Jingchan Chutkan': 'China, Latin America',
-  'Vishno Barium (V.C.)': 'India, Middle East',
-  'Jiaxinxi Anheng Jianghua': 'China, Africa',
-  'Nippon Chemical Industrial': 'Japan, North America',
-  'Sakai Chemical Industry': 'Japan, Europe',
-  'Others': 'Global'
+  'Gaudron Bedstar': 'Northeast, Southeast',
+  'Kandeltam': 'West, Southwest',
+  'Hebei Xing Chemical': 'Midwest, Northeast',
+  'Hubei Jingchan Chutkan': 'Southeast, Southwest',
+  'Vishno Barium (V.C.)': 'West, Midwest',
+  'Jiaxinxi Anheng Jianghua': 'Southwest, Southeast',
+  'Nippon Chemical Industrial': 'Northeast, West',
+  'Sakai Chemical Industry': 'Midwest, Southeast',
+  'Others': 'US'
 }
 
 // Market share percentages (must sum to 100)

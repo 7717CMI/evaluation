@@ -181,11 +181,12 @@ export function CustomerIntelligenceHeatmap({ title, height = 600, filePath }: C
   const { regions, endUserSegments } = useMemo(() => {
     // Default regions and segments if data is not available
     const defaultRegions = [
-      'North America',
-      'Latin America',
-      'Europe',
-      'Asia Pacific',
-      'Middle East & Africa'
+      'US',
+      'Northeast',
+      'Southwest',
+      'West',
+      'Southeast',
+      'Midwest'
     ]
     
     const defaultSegments = [

@@ -25,7 +25,7 @@ export function MatrixHeatmap({ title, height = 600 }: MatrixHeatmapProps) {
     const filtered = filterData(dataset, filters)
 
     // Check if we need Global-to-regional mapping
-    const regionalGeographies = ['North America', 'Europe', 'Asia Pacific', 'Latin America', 'Middle East & Africa', 'Middle East', 'Africa', 'ASEAN', 'SAARC Region', 'CIS Region']
+    const regionalGeographies = ['US']
     const hasRegionalSelection = filters.geographies.some(g => regionalGeographies.includes(g))
     const hasOnlyGlobalRecords = filtered.every(r => r.geography === 'Global')
     const needsGlobalMapping = hasRegionalSelection && hasOnlyGlobalRecords && !filters.geographies.includes('Global')
@@ -67,14 +67,12 @@ export function MatrixHeatmap({ title, height = 600 }: MatrixHeatmapProps) {
 
     // Realistic regional market share distribution for Global data mapping
     const regionalMarketShares: Record<string, number> = {
-      'North America': 0.31,
-      'Europe': 0.22,
-      'Asia Pacific': 0.41,
-      'Latin America': 0.02,
-      'Middle East & Africa': 0.04,
-      'ASEAN': 0.10,
-      'SAARC Region': 0.08,
-      'CIS Region': 0.05
+      'US': 1.0,
+      'Northeast': 0.22,
+      'Southwest': 0.13,
+      'West': 0.20,
+      'Southeast': 0.26,
+      'Midwest': 0.19
     }
 
     // Calculate sum of market shares for selected regions
